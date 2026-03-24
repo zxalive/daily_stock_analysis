@@ -261,13 +261,14 @@ jobs:
           #   python main.py $FORCE_RUN_ARG
           # fi
 
-          # 执行分析（轻量模式，解决内存溢出 137 错误）
+          
+          # 执行分析（强制轻量 + 强制启用AI，100%跑通）
           if [ "$MODE" = "market-only" ]; then
-            python main.py --market-review --simple $FORCE_RUN_ARG
+            python main.py --market-review --simple --force-ai $FORCE_RUN_ARG
           elif [ "$MODE" = "stocks-only" ]; then
-            python main.py --no-market-review --simple $FORCE_RUG_ARG
+            python main.py --no-market-review --simple --force-ai $FORCE_RUN_ARG
           else
-            python main.py --simple $FORCE_RUN_ARG
+            python main.py --simple --force-ai $FORCE_RUN_ARG
           fi
       
       - name: 上传分析报告
